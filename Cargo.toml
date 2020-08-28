@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["3vilive <ba0ch3ng@foxmail.com>"]
 edition = "2018"
 license = "MIT"
+description = "commend line tool for translate word between chineses and english"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
