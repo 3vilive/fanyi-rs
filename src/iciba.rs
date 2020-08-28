@@ -115,11 +115,11 @@ async fn get_translate_resp_body(content: &str) -> Result<String, reqwest::Error
 }
 
 pub async fn get_translate_result(content: &str) -> Result<HandyDict, String> {
-    match get_translate_resp_body(content).await {
-        Ok(body) => {
-            let resp_dict: RespDict = serde_xml_rs::from_str(&body).unwrap();
-            Ok(HandyDict::new_from_dict(&resp_dict))
-        }
-        Err(e) => Err(format!("{}", e)),
-    }
+    get_translate_resp_body(content).await
+        .map_err(|err| format!("{}", err))
+        .and_then(|body| {
+            serde_xml_rs::from_str::<RespDict>(&body)
+                .map_err(|err| format!("{}", err))
+                .map(|resp_dict| HandyDict::new_from_dict(&resp_dict))
+        })
 }
