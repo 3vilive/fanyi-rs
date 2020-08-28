@@ -2,8 +2,16 @@
 
 commend line tool for translate word between chineses and english
 
+## install
+
 ```
-$ cargo run -q -- 空想家
+cargo install fanyi-rs
+```
+
+## usage
+
+```
+$ fanyi-rs 空想家
 
  空想家 ~ iciba.com
 
@@ -20,7 +28,7 @@ $ cargo run -q -- 空想家
 ```
 
 ```
-$ cargo run -q -- idealist
+$ fanyi-rs idealist
 
  idealist 英[ aɪ'di:əlɪst ] 美[ aɪˈdiəlɪst ] ~ iciba.com
 
